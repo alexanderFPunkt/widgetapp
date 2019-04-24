@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
+import Overview from "./containers/Overview/Overview";
+import AddWizard from "./containers/AddWizard/AddWizard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route path="/overview" exact component={Overview} />
+      <Route path="/addWizard" exact component={AddWizard} />
+      <Redirect to="/overview" />
+    </Switch>
   );
 }
 
-export default App;
+export default withRouter(App);
