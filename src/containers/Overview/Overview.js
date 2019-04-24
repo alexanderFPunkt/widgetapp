@@ -115,14 +115,17 @@ class Overview extends Component {
     }
 
     //widgets
-    const widgetList = this.state.widgets.map(widget => (
-      <Widget
-        key={widget.name + widget.language}
-        name={widget.name}
-        language={widget.language}
-        clicked={event => this.showDeleteModal(widget.name, widget.language)}
-      />
-    ));
+    let widgetList = null;
+    if (this.state.widgets !== null) {
+      widgetList = this.state.widgets.map(widget => (
+        <Widget
+          key={widget.name + widget.language}
+          name={widget.name}
+          language={widget.language}
+          clicked={event => this.showDeleteModal(widget.name, widget.language)}
+        />
+      ));
+    }
 
     return (
       <div className={cssClasses.Overview}>
