@@ -6,7 +6,7 @@ export default function NameSelect(props) {
 
   const inputChangedHandler = event => {
     let validity = /^[A-Za-z ]+$/.test(value); //only chars and whitespaces
-    if (value.trim(" ").length < 4) validity = false; // dont mess with whitespaces
+    if (value.trim(" ").length < 2) validity = false; // dont mess with whitespaces
 
     setDisabled(!validity);
     setValue(event.target.value.trim(" "));
